@@ -13,8 +13,12 @@
         <li>Interval-based hierarchies: these hierarchies can be used for variables with a ratio scale.</li>
         <li>Order-based hierarchies: this method can be used for variables with an ordinal scale.</li>
         <li>Date-based hierarchies: this method can be used for dates.</li>
+        <li>Priority-based hierarchies: heirarchy can be generated based on frequencies.</li>
     </ol>
-    <h5>Masking-based hierarchies</h5>
+    <a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02.png"  class="img-fluid"  alt="Masking-based wizard" width="408" height="278"/></a>
+    <br> Note that ARX deactivates the options that do not suit the selected attribute e.g. for ZIP code, the date is deactivated and can not be selected as shown in the figure above.  
+
+    <h5> 3.3.1. Masking-based hierarchies</h5>
     <p>Masking is a flexible mechanism that can be applied to many types of attributes and which is especially suitable
         for alphanumeric codes, such as ZIP codes. The following image shows a screenshot of the
         respective wizard:</p>
@@ -24,7 +28,7 @@
         Then the characters are masked, again, either from left to right, or from right to left. All values are
         adjusted to a common length by adding padding characters. This character, as well as the character used
         for masking can be specified by the user.</p>
-    <h5>Interval-based hierarchies</h5>
+    <h5> 3.3.2. Interval-based hierarchies</h5>
     <p>Intervals are a natural means of generalization for values with a ratio scale, such as integers or decimals.
         ARX offers a graphical editor for efficiently defining sets of intervals over the complete
         range of variables having any of the above data types. First a sequence of intervals can be
@@ -58,7 +62,7 @@
      will be extended to the bottom or top coding limit.  Within the remaining range intervals will be repeated..</p>
     <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_2.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_2.png"  class="img-fluid" alt="Range" width="408" height="278"/></a>
 
-    <h5>Order-based hierarchies</h5>
+    <h5> 3.3.3. Order-based hierarchies</h5>
     <p>Order-based hierarchies follow a similar principle as interval-based hierarchies, but they can be applied to
         attributes with ordinal scale. In addition to the types of attributes covered by interval-based hierarchies this
         includes strings, using their lexicographical order, and ordinals. First, attributes within the
@@ -70,7 +74,7 @@
         the domain can be labeled with user defined constants.</p>
     <a href ="../../../help/v3.9.1/img/ch3/p0303Ordered_wizard.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Ordered_wizard.png"  class="img-fluid" alt="Order-based wizard" width="408" height="278"/></a>
 
-        <h5>Date-based hierarchies</h5>
+    <h5> 3.3.4. Date-based hierarchies</h5>
     <p>This wizard supports the creation of hierarchies for dates by specifying the granularity of output data at increasing
        generalization levels. Please note that it is important to specify granularity levels that form an hierarchy (e.g.
        day-of-week can typically not be followed by week-of-year, because the same day-of-week can be generalized
