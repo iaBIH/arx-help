@@ -22,7 +22,7 @@
     <p>Masking is a flexible mechanism that can be applied to many types of attributes and which is especially suitable
         for alphanumeric codes, such as ZIP codes. The following image shows a screenshot of the
         respective wizard:</p>
-    <a href ="../../../help/v3.9.1/img/ch3/p0303Redaction_wizard.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Redaction_wizard.png"  class="img-fluid"  alt="Masking-based wizard" width="408" height="278"/></a>
+        <br><a href ="../../../help/v3.9.1/img/ch3/p0303Redaction_wizard.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Redaction_wizard.png"  class="img-fluid"  alt="Masking-based wizard" width="408" height="278"/></a><br>
 
     <p>In the wizard, masking follows a two-step process. First, values are aligned either to the left or to the right.
         Then the characters are masked, again, either from left to right, or from right to left. All values are
@@ -38,30 +38,57 @@
         arbitrary integers into intervals of length 10, only one interval [0, 10] needs to be defined. Defining a group
         of size two on the next level, automatically generalizes integers into groups of size 20. As is shown in the
         image (W1), the editor visually indicates automatically created repetitions of intervals and groups.</p>
-    <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_1.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_1.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a>
+        <ol>
+            <li> First a range should be defined (note that Arx detects lower and higher values automatically e.g. 17 and 91). 
+                The left side (gray color) shows the input and the right side (black color) shows the output. 
+                Interval-based hierarchies might define ranges in which they are to be applied. Any value out of the range 
+                defined by "minimum value" or "maximum value" will produce an error message. This can be used to implement sanity checks.
+                Any value between the minimal or maximal value and the "bottom coding" or "top coding" values will be top- or bottom-coded.
+                If values fall into an interval stretching from the bottom coding or top coding limit to the "snap" limit, it
+                will be extended to the bottom or top coding limit.  Within the remaining range intervals will be repeated.
+           
+            <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval02Range.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval02Range.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br>
+            </li> 
+            <li> Define the length of the basic interval: first click on the interval then type the values. Intervals are defined by a
+                minimum (inclusive) and maximum (exclusive) bound. To be able to create labels for intervals, each element must be associated with an aggregate function.
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval_functions.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval_functions.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br>
 
-    <p>To be able to create labels for intervals, each element must be associated with an aggregate function (W2).
-       The following aggregate functions are supported:</p>
-    <ol>
-        <li>Set: a set-representation of input values is returned.</li>
-        <li>Prefix: a set of prefixes of the input values is returned. A parameter allows defining the length of these prefixes.</li>
-        <li>Common-prefix: returns the largest common prefix.</li>
-        <li>Bounds: returns the first and last elements of the set.</li>
-        <li>Interval: an interval between the minimal and maximal value is returned.</li>
-        <li>Constant: returns a predefined-constant value.</li>
+            The following aggregate functions are supported:</p>
+                <ol>
+                    <li>Constant value: returns a predefined-constant value.</li>
+                    <li>Bounding values: returns the first and last elements of the set.</li>
+                    <li>Common-prefix: returns the largest common prefix.</li>
+                    <li>Interval: an interval between the minimal and maximal value is returned.</li>
+                    <li>Set of values: a set-representation of input values is returned.</li>
+                    <li>Set of prefixes: a set of prefixes of the input values is returned. A parameter allows defining the length of these prefixes.</li>
+                    <li>Arithmetic mean: returns the arithmetic mean of the interval values.</li>
+                    <li>Arithmetic mean of bounds: returns the arithmetic mean of the first and last values.</li>
+                    <li>Geometric mean: returns the geometric mean of the interval values.</li>
+                    <li>Geometric mean of bounds: returns the geometric mean of of the first and last values.</li>
+                </ol>
+            <p>Note that if the data type is integer, the mean value is rounded. Clicking on an interval or a group prompts an editor which can be used for specifying the aggreigate function parameters.</p> 
+             <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br>
+            </li>  <br>
+            <li> Right click on the interval to add a new level. Groups are defined by their size. The size field controls how many levels can be combined from the previous level. Elements can
+                be removed, added and merged by right-clicking their graphical representation. :<br> 
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval_levels01.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval_levels01.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br>
+            </li> <br>
+            <li> Create more levels as needed (in the figure, size 2 is used). <br> 
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CcreateHeirarchy02_interval03Interval_levels02.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CcreateHeirarchy02_interval03Interval_levels02.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br>
+           </li> <br>
+           <li> The heirarchy can be viewd as table. <br>       
+            <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval_levels03.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval_levels03.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br>
+           </li>
     </ol>
-    <p>Clicking on an interval or a group prompts an editor which can be used for specifying parameters. Elements can
-        be removed, added and merged by right-clicking their graphical representation. Intervals are defined by a
-        minimum (inclusive) and maximum (exclusive) bound. Groups are defined by their size:</p>
-    <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_4.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_4.png"  class="img-fluid"  alt="Group" width="408" height="278" /></a>
+    <!-- <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_1.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_1.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a> -->
 
-    <p>Interval-based hierarchies might define ranges in which they are to be applied. Any value out of the range 
-    defined by "minimum value" or "maximum value" will produce an error message. This can be used to implement sanity checks.
-     Any value between the minimal or maximal value and the "bottom coding" or "top coding" values will be top- or bottom-coded.
-     If values fall into an interval stretching from the bottom coding or top coding limit to the "snap" limit, it
-     will be extended to the bottom or top coding limit.  Within the remaining range intervals will be repeated..</p>
-    <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_2.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_2.png"  class="img-fluid" alt="Range" width="408" height="278"/></a>
 
+    <!-- <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_4.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_4.png"  class="img-fluid"  alt="Group" width="408" height="278" /></a> -->
+
+
+    <!-- <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_2.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_2.png"  class="img-fluid" alt="Range" width="408" height="278"/></a> -->
+
+    
     <h5> 3.3.3. Order-based hierarchies</h5>
     <p>Order-based hierarchies follow a similar principle as interval-based hierarchies, but they can be applied to
         attributes with ordinal scale. In addition to the types of attributes covered by interval-based hierarchies this
@@ -72,19 +99,59 @@
         the values contained in the concrete dataset. The mechanism can be used to create semantic hierarchies from a
         pre-defined meaningful ordering of the domain of a discrete variable. Subsequent generalizations of values from
         the domain can be labeled with user defined constants.</p>
-    <a href ="../../../help/v3.9.1/img/ch3/p0303Ordered_wizard.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Ordered_wizard.png"  class="img-fluid" alt="Order-based wizard" width="408" height="278"/></a>
 
+        <!-- <a href ="../../../help/v3.9.1/img/ch3/p0303Ordered_wizard.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Ordered_wizard.png"  class="img-fluid" alt="Order-based wizard" width="408" height="278"/></a> -->
+
+        <p> An example is to generalize the country attribute into continent or sets of 3 countries. Another example is to genearlize martial status attribute to 
+            spouse present and spouse not present in first level then supress all records in the second levels: <br>
+            <ol>
+                <li> Order the values in the left side by selecting a value then move it using Move up and Move down buttons. All values that represent spouse present should be on top</li>
+                <li> Click on the group then select constant value as an aggreigate function and type "spouse present" in parameter field. Type 2 in the size field (we have only two values where spouse present).</li>
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord1.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord1.png"  class="img-fluid" alt="Order-based wizard1" width="408" height="278"/></a><br> 
+                <li> Right-click on the group and select add after to add a new group. Select constant value as an aggreigate function and type "spouse not present" in parameter field. Type 5 in the size field  (we have 5 values where spouse not present)</li>
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord2.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord2.png"  class="img-fluid" alt="Order-based wizard2" width="408" height="278"/></a><br>  
+                <li> Right-click on the first group and select Add new level. Select constant value as an aggreigate function and type "*" in the parameter field. Type 2 in the size field  (we will combine the two groups in the first level)</li>
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord3.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord3.png"  class="img-fluid" alt="Order-based wizard3" width="408" height="278"/></a><br>  
+                <li> The heirarchy table should looks like this: </li>
+                <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord4.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_ord4.png"  class="img-fluid" alt="Order-based wizard3" width="408" height="278"/></a><br> 
+            </ol>
+        </p>
     <h5> 3.3.4. Date-based hierarchies</h5>
     <p>This wizard supports the creation of hierarchies for dates by specifying the granularity of output data at increasing
-       generalization levels. Please note that it is important to specify granularity levels that form an hierarchy (e.g.
+       generalization levels. Please note that it is important to specify granularity levels that form a hierarchy (e.g.
        day-of-week can typically not be followed by week-of-year, because the same day-of-week can be generalized
        to different weeks of a year). When this constraint is violated, ARX will raise an error message during the
        anonymization process.</p>
+       <p> When selecting a granularity, the format is detcted automatically. Bottom coding, top coding and Time zone also can be specified.</p>
+       <p> The granularities are ordered from very detailed (top) to less detailed (bottom). One should start with a less detailed than the original data. Selecting multiple granularities generates multiple levels.
+         Top coding, bottom coding, and Time zone can also be specified.</p>
+        </ol>
+    <p> Supported granularities:
+        <ol>
+            <li> Second/minute/hour/day/month/year e.g. removing the smaller parts of the seconds. </li>            
+            <li> Minute/hour/day/month/year e.g. removing the seconds and smaller part. </li>             
+            <li> Hour/day/month/year e.g. removing the minutes, seconds and smaller part.</li> 
+            <li> Day/month/year: e.g. removing the time from date and time format.</li> 
+            <li> Week/month/year: the first field is the Week of the month assuming Sunday is the first day of the week  e.g. 1896-05-25 ARX outputs 5/05.1896</li> 
+            <li> weak/year: the first field is the Week of the year e.g. 1893-11-12 ARX outputs 46/1893</li> 
+            <li> Month/year: e.g. 1893-11-12 ARX outputs 11/1893</li> 
+            <li> Quarter/year: the first field is the quarter of the year e.g. 1893-11-12 ARX outputs Q4/1893</li> 
+            <li> Day of week: the quarter of the year e.g. 1893-11-12 ARX outputs Q4/1893</li> 
+            <li> Week of year: the Week of the yeare.g. 1893-11-12 ARX outputs 46</li> 
+            <li> Quarter of year: the quarter of the year e.g. 1893-11-12 ARX outputs Q4</li> 
+            <li> Year  e.g. 1893-11-12 ARX outputs 1893</li> 
+            <li> Decade: the decade of the year e.g. 1893-11-12 ARX outputs [1890, 1900[</li> 
+            <li> Century: the century of the year e.g. 1893-11-12 ARX outputs [1800, 1900[</li> 
+            <li> Millennium: the millennium of the year e.g. 1893-11-12 ARX outputs [1000, 2000[</li> 
+        </ol>
+    </p>
     <a href ="../../../help/v3.9.1/img/ch3/p0303Date_wizard.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Date_wizard.png"  class="img-fluid"  alt="Date-based wizard" width="408" height="280"/></a>
+
+
 
     <p>In a final step, all wizards show a tabular representation of the resulting hierarchy for the current input dataset. 
         Additionally, the number of groups on each level is calculated. The functional representation created in the process can be
-        exported and reused for different datasets with similar attributes.</p>
-    <a href ="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_5.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303Interval_wizard_5.png"  class="img-fluid" alt="Wizard result" width="408" height="278" /></a>
+        exported (using File > export heirarchy) and reused for different datasets with similar attributes (using File > import heirarchy).</p>
+    <!-- <br><a href ="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval_levels03.png" target="myPage"> <img src="../../../help/v3.9.1/img/ch3/p0303CreateHeirarchy02_interval03Interval_levels03.png"  class="img-fluid"  alt="Interval editor" width="408" height="278" /></a><br> -->
 
 </div>
