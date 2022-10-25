@@ -122,10 +122,8 @@
        day-of-week can typically not be followed by week-of-year, because the same day-of-week can be generalized
        to different weeks of a year). When this constraint is violated, ARX will raise an error message during the
        anonymization process.</p>
-       <p> When selecting a granularity, the format is detcted automatically. Bottom coding, top coding and Time zone also can be specified.</p>
-       <p> The granularities are ordered from very detailed (top) to less detailed (bottom). One should start with a less detailed than the original data. Selecting multiple granularities generates multiple levels.
-         Top coding, bottom coding, and Time zone can also be specified.</p>
-        </ol>
+       <p> When selecting a granularity, the format is detcted automatically and one can correct it if needed (incorrect format outputs wrong values). Bottom coding, top coding and Time zone also can be specified.</p>
+       <p> The granularities are ordered from very detailed (top) to less detailed (bottom). One should start with a less detailed than the original data. Selecting multiple granularities generates multiple levels.</p>
     <p> Supported granularities:
         <ol>
             <li> Second/minute/hour/day/month/year e.g. removing the smaller parts of the seconds. </li>            
