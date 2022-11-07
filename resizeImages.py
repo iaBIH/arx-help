@@ -54,7 +54,7 @@ for imgF in imgFolders:
 
 
 def updateWebPage(line, imgRecord):
-    newLinePart = 'width="'+str(imgRecord[1])+'" height="'+str(imgRecord[2])+" /> \n"
+    newLinePart = 'width="'+str(imgRecord[1])+'" height="'+str(imgRecord[2])+'" /> \n'
     lineStart=line.find('width="')
     newLine = line[:lineStart] + newLinePart 
     return newLine
