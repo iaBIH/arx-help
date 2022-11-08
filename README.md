@@ -1,4 +1,7 @@
-# ARX Help
+# ARX Online Help
+
+
+## ARX Help Center
 
 This repository contains the online help of [ARX](https://github.com/arx-deidentifier/arx).
 
@@ -45,3 +48,13 @@ This repository contains the online help of [ARX](https://github.com/arx-deident
   - [6.4. HIPAA identifiers](https://github.com/arx-deidentifier/arx-help/blob/master/help/v3.9.1/risk/hipaa.html)
   - [6.5. Population uniques](https://github.com/arx-deidentifier/arx-help/blob/master/help/v3.9.1/risk/uniques.html)
   - [6.6. Population settings](https://github.com/arx-deidentifier/arx-help/blob/master/help/v3.9.1/risk/population.html)
+
+
+## More useful resources:
+
+* [ARX official website](https://arx.deidentifier.org). 
+* [ARX short video tutorial](https://www.youtube.com/watch?v=N8I-sxmMfqQ) for version 3.2. 
+* [ARX Anonymisierung in Theorie und Praxis (German lecture with English slides)](https://www.youtube.com/watch?v=MFPDpkh6eQE)
+* [ARX papers](https://arx.deidentifier.org/publications/)
+
+  
